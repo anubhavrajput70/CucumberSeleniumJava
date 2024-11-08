@@ -11,7 +11,6 @@ import io.cucumber.junit.Cucumber;
 		monochrome=true,
 		plugin={"pretty","html:target/HtmlReport"},
 		tags="@search" 
-		
 		)
 
 public class Runner {

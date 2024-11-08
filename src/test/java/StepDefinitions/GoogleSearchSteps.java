@@ -20,7 +20,7 @@ public class GoogleSearchSteps {
 	
 	@Given("user is on the browser")
 	public void user_is_on_the_browser() {
-		System.setProperty("webdriver.chrome.driver","C:/Users/ANUBHAV/Desktop/Revision/CucumberSeleniumJava/src/test/resources/driver/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:/Users/anubh/OneDrive/Desktop/selenium projects/CucumberSeleniumJava/src/test/resources/driver/chromedriver.exe");
 		driver =new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
 		driver.manage().window().maximize();
