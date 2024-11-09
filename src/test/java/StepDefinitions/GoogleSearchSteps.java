@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Utils.DriverFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,10 +21,8 @@ public class GoogleSearchSteps {
 	
 	@Given("user is on the browser")
 	public void user_is_on_the_browser() {
-		System.setProperty("webdriver.chrome.driver","C:/Users/anubh/OneDrive/Desktop/selenium projects/CucumberSeleniumJava/src/test/resources/driver/chromedriver.exe");
-		driver =new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-		driver.manage().window().maximize();
+		DriverFactory driver=new DriverFactory();
+		driver.getDriver();
 	}
 
 	@And("user enters a text in the search box")

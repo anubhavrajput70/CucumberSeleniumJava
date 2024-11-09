@@ -8,34 +8,36 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
 	public static WebDriver driver=null;
-
-	public WebDriver getDriver() {
+	public WebDriver getDriver() 
+	{
 		// TODO Auto-generated method stub
 		try
 		{
 			//read config
 			ReadConfigFile file =new ReadConfigFile();
-			String browserName=file.getBrowser();		
-			switch (browserName) {
-			case "firelfox":
-				if(driver==null)
-				{
-					System.setProperty("webdriver.gecko.driver", Constant.GECKO_DRIVER_DIRECTORY);
-					DesiredCapabilities capabilities=new DesiredCapabilities();
-					driver=new FirefoxDriver();
-				}
-				break;
-			case "Chrome":
-				if(driver==null)
-				{
-					System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_DIRECTORY);
-					DesiredCapabilities capabilities=new DesiredCapabilities();
-					driver=new ChromeDriver();
-				}
-				break;
-			default:
-				break;
-			}
+			String browserName=file.getBrowser();	
+			System.out.println(browserName);
+//			switch(browserName) 
+//			{
+//			case "firefox":
+//				if(driver==null)
+//				{
+//					System.setProperty("webdriver.gecko.driver", Constant.GECKO_DRIVER_DIRECTORY);
+//					DesiredCapabilities capabilities=new DesiredCapabilities();
+//					driver=new FirefoxDriver();
+//				}
+//				break;
+//			case "chrome":
+//				if(driver==null)
+//				{
+//					System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_DIRECTORY);
+//					DesiredCapabilities capabilities=new DesiredCapabilities();
+//					driver=new ChromeDriver();
+//				}
+//				break;
+//			default:
+//				break;
+//			}
 		}
 		catch (Exception e) {
 			System.out.println("unable to load browser"+e.getMessage());
