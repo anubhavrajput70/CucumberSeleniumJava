@@ -21,7 +21,7 @@ public class ReadConfigFile {
 	}
 	public String getBrowser()
 	{
-		if(prop.getProperty("broswer")==null)
+		if(prop.getProperty("browser")==null)
 			return "";
 		return prop.getProperty("browser");
 	}

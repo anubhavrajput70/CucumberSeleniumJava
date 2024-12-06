@@ -16,28 +16,22 @@ public class DriverFactory {
 			//read config
 			ReadConfigFile file =new ReadConfigFile();
 			String browserName=file.getBrowser();	
-			System.out.println(browserName);
-//			switch(browserName) 
-//			{
-//			case "firefox":
-//				if(driver==null)
-//				{
-//					System.setProperty("webdriver.gecko.driver", Constant.GECKO_DRIVER_DIRECTORY);
-//					DesiredCapabilities capabilities=new DesiredCapabilities();
-//					driver=new FirefoxDriver();
-//				}
-//				break;
-//			case "chrome":
-//				if(driver==null)
-//				{
-//					System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_DIRECTORY);
-//					DesiredCapabilities capabilities=new DesiredCapabilities();
-//					driver=new ChromeDriver();
-//				}
-//				break;
-//			default:
-//				break;
-//			}
+			switch (browserName) {
+			case "firefox":
+				if(driver==null)
+				{
+					System.setProperty("webdriver.gecko.driver", Constant.GECKO_DRIVER_DIRECTORY);
+					driver=new FirefoxDriver();
+				}
+				break;
+			case "chrome":
+				if(driver==null)
+				{
+					System.setProperty("webdriver.chrome.driver", Constant.CHROME_DRIVER_DIRECTORY);
+					driver=new ChromeDriver();
+				}
+				break;
+			}
 		}
 		catch (Exception e) {
 			System.out.println("unable to load browser"+e.getMessage());
