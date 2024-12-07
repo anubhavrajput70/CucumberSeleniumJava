@@ -10,7 +10,7 @@ import io.cucumber.junit.Cucumber;
 
 		monochrome=true,
 		plugin={"pretty","html:target/HtmlReport"},
-		tags="@search" 
+		tags="@login" 
 		)
 
 public class Runner {

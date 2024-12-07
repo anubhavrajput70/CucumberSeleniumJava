@@ -1,41 +1,62 @@
 package StepDefinitions;
 
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import Utils.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginSteps {
+public class LoginSteps extends DriverFactory{
 
-	@Given("user is on the login page")
-	public void user_is_on_the_login_page() {
-		System.out.println("step 1");
+	
+	@Given("User navigates to {string}")
+	public void user_navigates_to(String string) {
+	  driver.get(string);
 	}
 
-	@When("user enters username and password")
-	public void user_enters_username_and_password() {
-		System.out.println("step 2");
+	@When("User clicks on the login portal button")
+	public void user_clicks_on_the_login_portal_button() {
+	   driver.findElement(By.xpath("//h1[contains(text(),'LOGIN PORTAL')]")).click();
 	}
 
-	@When("clicks on login button")
-	public void clicks_on_login_button() {
-		System.out.println("step 3");
+	@When("User enters the {string} username")
+	public void user_enters_the_username(String string) {
+		String parentWindow=driver.getWindowHandle();
+		Set<String> allhandles=driver.getWindowHandles();
+		for(String handle:allhandles)
+		{
+			if(!handle.equals(parentWindow))
+			{
+				driver.switchTo().window(handle);
+				break;
+			}
+		}
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("text")));
+		driver.findElement(By.id("text")).sendKeys(string);
 	}
 
-	@Then("user is navigated to the home page")
-	public void user_is_navigated_to_the_home_page() {
-		System.out.println("step 4");
+	@When("User enters the {string} password")
+	public void user_enters_the_password(String string) {
+		driver.findElement(By.id("password")).sendKeys(string);
 	}
 
-	@When("user enters user1 and pass1")
-	public void user_enters_user1_and_pass1() {
-		System.out.println("step 5");
+	@When("User clicks on the login button")
+	public void user_clicks_on_the_login_button() {
+	   driver.findElement(By.id("login-button")).click();
 	}
 
-	@When("user enters user2 and pass2")
-	public void user_enters_user2_and_pass2() {
-		System.out.println("step 6");
+	@Then("User should be presented with the following prompt alert {string}")
+	public void user_should_be_presented_with_the_following_prompt_alert(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
-
 
 
 }

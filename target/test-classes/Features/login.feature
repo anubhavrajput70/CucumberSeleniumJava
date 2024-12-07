@@ -1,19 +1,15 @@
-@smoke
-Feature: feature to test the login functionality
+Feature: Login to account
 
-  Scenario: Check login is successfull with valid credentials
-    Given user is on the login page
-    When user enters username and password
-    And clicks on login button
-    Then user is navigated to the home page
-
-  Scenario Outline: Check login is successfull with valid credentials
-    Given user is on the login page
-    When user enters <username> and <password>
-    And clicks on login button
-    Then user is navigated to the home page
+  @login
+  Scenario Outline: Login to account with credentials
+    Given User navigates to "<url>"
+    When User clicks on the login portal button
+    And User enters the "<username>" username
+    And User enters the "<password>" password
+    When User clicks on the login button
+    Then User should be presented with the following prompt alert "<message>"
 
     Examples: 
-      | username | password |
-      | user1    | pass1    |
-      | user2    | pass2    |
+      | url                                  | username  | password     | message              |
+      | https://www.webdriveruniversity.com/ | user1     | user2        | validation failed    |
+      | https://www.webdriveruniversity.com/ | webdriver | webdriver124 | validation succeeded |
