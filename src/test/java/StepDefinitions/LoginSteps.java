@@ -1,8 +1,11 @@
 package StepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
 import java.time.Duration;
 import java.util.Set;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -53,10 +56,9 @@ public class LoginSteps extends DriverFactory{
 	}
 
 	@Then("User should be presented with the following prompt alert {string}")
-	public void user_should_be_presented_with_the_following_prompt_alert(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void user_should_be_presented_with_the_following_prompt_alert(String msg) {
+	    Alert alert=driver.switchTo().alert();
+	    assertEquals(alert.getText().toString().toLowerCase().replaceAll("\\s", ""),msg.toLowerCase().replaceAll("\\s", ""));
+	    alert.accept();
 	}
-
-
 }
