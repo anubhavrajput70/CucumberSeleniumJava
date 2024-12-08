@@ -11,6 +11,12 @@ public class MasterHooks extends DriverFactory{
 	{
 		driver=getDriver();
 	}
+	// we can also add the tags in the cucumber hooks
+//	@Before("@smoke")
+//	public void setup()
+//	{
+//		driver=getDriver();
+//	}
 	@After
 	public void tearDown()
 	{
