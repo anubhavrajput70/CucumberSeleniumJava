@@ -37,6 +37,7 @@ public class DriverFactory {
 			System.out.println("unable to load browser"+e.getMessage());
 		}
 		finally {
+			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(60,TimeUnit.SECONDS);	
 		}
 		return driver;

@@ -16,9 +16,9 @@ public class Products extends DriverFactory{
 	}
 
 	@Then("User should be presented with a promo alert")
-	public void user_should_be_presented_with_a_promo_alert() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	public void user_should_be_presented_with_a_promo_alert() throws InterruptedException {
+		  Thread.sleep(2000);
+		  driver.findElement(By.xpath("//button[text()='Proceed']")).click();
 	}
 
 
