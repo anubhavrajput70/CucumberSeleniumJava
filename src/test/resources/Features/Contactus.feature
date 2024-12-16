@@ -1,15 +1,18 @@
 Feature: Submit data to webdriveruniversity.com using contact us form
 
   #backgroud keyword is for common step for all the feature have it is a precondition
-  Background: 
-    Given User is on the webdriveruniversity
-    When User click on the contact us button
-
+  # Background:
+  #    Given User is on the webdriveruniversity
+  #   When User click on the contact us button
+  @contactus
   Scenario: Submit information using the contact us form
+    Given User Access webdriveruniversity contactus form
     And User enter firstname
     And User enter lastname
+      | woods | jackson | jones |
     And User enter an email address
     And User enter comments
+      | example comment one | example comment two |
     When User clicks on the submit button
     Then the information should be successfully be submitted via contact us forms
 

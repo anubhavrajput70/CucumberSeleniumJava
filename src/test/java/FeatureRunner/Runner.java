@@ -8,11 +8,11 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/Features",glue= {"StepDefinitions"},
-
-		monochrome=true,
-		plugin={"pretty","html:target/HtmlReport","json:target/JsonReport.json","com.cucumber.listener.ExtentCucumberFormatter:target/report.html"},
-		tags="@login" 
+@CucumberOptions(features="src/test/resources/Features",
+				glue= {"StepDefinitions"},
+				monochrome=true,
+				//plugin={"pretty","html:target/HtmlReport","json:target/JsonReport.json","com.cucumber.listener.ExtentCucumberFormatter:target/report.html"},
+				tags="@contactus" 
 		)
 
 public class Runner {
