@@ -2,6 +2,7 @@ package FeatureRunner;
 //we can also create the multiple runner classes for the targeted features files for different folders
 //we can run any number of runner classes with the help of the testng xml file
 //surefire is a plugin which gives us the capability to run the project through command line
+//using batch file we can run our project from command prompt and it also downloads the latest dependancy before running
 import org.junit.runner.RunWith;
 
 import io.cucumber.junit.CucumberOptions;

@@ -17,5 +17,16 @@ public class Products_Page extends BasePage{
 		super();
 	}
 	
+	public Products_Page clickOnProceedButton_popup() throws IOException
+	{
+		waitAndClickElement(button_proceed);
+		return new Products_Page();
+	}
+	public String printSpecialOfferVoucherCode() {
+		String voucherCode =voucherNumber.getText();
+		System.out.println("Voucher Code: "+voucherCode);
+		return voucherCode;
+		
+	}
 	
 }
